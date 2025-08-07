@@ -1,0 +1,42 @@
+### Sign Up
+POST http://localhost:3000/api/auth/signup
+Content-Type: application/json
+
+{
+  "email": "user@example.com",
+  "password": "pass123"
+}
+
+### Login
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "user@example.com",
+  "password": "pass123"
+}
+
+### Invite Admin
+POST http://localhost:3000/api/auth/invite-admin
+Authorization: Bearer <super_admin_token>
+Content-Type: application/json
+
+{
+  "email": "admin@demo.com"
+}
+
+### Set Password for Admin
+POST http://localhost:3000/api/auth/set-password/<token>
+Content-Type: application/json
+
+{
+  "password": "adminpass123"
+}
+
+### Promote to Editor
+PATCH http://localhost:3000/api/users/2/promote
+Authorization: Bearer <token>
+
+### Delete User
+DELETE http://localhost:3000/api/users/2
+Authorization: Bearer <super_admin_token>

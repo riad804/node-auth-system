@@ -11,11 +11,14 @@ const app = express();
 
 app.use(cors());
 app.use(helmet());
-app.use(logger.log);
 app.use(express.json());
 
 app.use(redisMiddleware);
-app.use(apiRateLimiter);
+// app.use(apiRateLimiter);
+app.use((req, res, next) => {
+  logger.info(`${req.method} ${req.url}`);
+  next();
+});
 
 app.use('/api', routes);
 app.use(errorHandler);

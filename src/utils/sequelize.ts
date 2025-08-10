@@ -7,7 +7,7 @@ export const sequelize = new Sequelize({
   database: process.env.DB_NAME || 'auth_system_db',
   username: process.env.DB_USER || 'root',
   password: process.env.DB_PASSWORD || '',
-  logging: true,
+  logging: false,
   define: {
     timestamps: true,
     underscored: true,

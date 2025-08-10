@@ -6,7 +6,13 @@
   "scripts": {
     "dev": "nodemon src/server.ts",
     "build": "tsc",
-    "start": "node dist/server.js"
+    "start": "node dist/server.js",
+    "db:create": "npx ts-node ./node_modules/.bin/sequelize db:create",
+    "db:drop": "npx ts-node ./node_modules/.bin/sequelize db:drop",
+    "migrate": "npx ts-node ./node_modules/.bin/sequelize db:migrate",
+    "migrate:undo": "npx ts-node ./node_modules/.bin/sequelize db:migrate:undo",
+    "seed": "npx ts-node ./node_modules/.bin/sequelize db:seed:all",
+    "seed:undo": "npx ts-node ./node_modules/.bin/sequelize db:seed:undo:all"
   },
   "keywords": [],
   "author": "",
@@ -25,10 +31,14 @@
     "morgan": "^1.10.1",
     "mysql2": "^3.14.3",
     "nodemailer": "^7.0.5",
+    "pg": "^8.16.3",
+    "pg-hstore": "^2.3.4",
     "rate-limit-redis": "^4.2.1",
     "redis": "^5.7.0",
+    "reflect-metadata": "^0.2.2",
     "sequelize": "^6.37.7",
-    "winston": "^3.17.0"
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
